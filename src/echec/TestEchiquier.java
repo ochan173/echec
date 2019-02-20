@@ -34,4 +34,25 @@ public class TestEchiquier extends TestCase {
         assertEquals(pionBlanc, m_echiquier.getPion("a1"));
         assertEquals(2, m_echiquier.getNombrePieces());
     }
+
+    /**
+     * Test pour l'affichage de l'échiquier
+     */
+    public void testAfficher() {
+        m_echiquier.initialiser();
+        m_echiquier.afficherEchiquier();
+
+        String echiquier = "XXXXXXXX\nPPPPPPPP\nXXXXXXXX\nXXXXXXXX\nXXXXXXXX\nXXXXXXXX\npppppppp\nXXXXXXXX";
+        assertEquals(echiquier, m_echiquier.EchiquierString());
+
+        int cptPions = 0;
+        echiquier = m_echiquier.EchiquierString();
+
+        for (int i = 0; i < m_echiquier.EchiquierString().length(); i++) {
+            if (echiquier.charAt(i) == 'p' || echiquier.charAt(i) == 'P')
+                cptPions++;
+        }
+
+        assertEquals(16, cptPions);
+    }
 }

@@ -8,8 +8,9 @@ import java.util.LinkedHashMap;
  * @author Olivier Chan
  * @author David Goulet
  */
-public class Echiquier {
+class Echiquier {
     private LinkedHashMap<String, Pion> m_pions = new LinkedHashMap<>();
+    private char[][] m_echiquier = new char[8][8];
 
     /**
      * Construdteur de base
@@ -48,5 +49,54 @@ public class Echiquier {
      */
     int getNombrePieces() {
         return m_pions.size();
+    }
+
+    /**
+     * Initialisation de l'échiquier
+     */
+    void initialiser() {
+       for (int y = 0; y < 8; y++) {
+           for (int x = 0; x < 8; x++) {
+               if (y == 1)
+                   m_echiquier[y][x] = 'P';
+               else if (y == 6)
+                   m_echiquier[y][x] = 'p';
+               else
+                   m_echiquier[y][x] = 'X';
+           }
+       }
+    }
+
+    /**
+     * Affichage de l'échiquier dans la console
+     */
+    void afficherEchiquier()
+    {
+        for (char[] y : m_echiquier) {
+            for (char x : y) {
+                System.out.print(x);
+            }
+            System.out.println("\n");
+        }
+    }
+
+    /**
+     * Transforme l'échiquier en string
+     * @return L'échiquier en string
+     */
+    String EchiquierString()
+    {
+        StringBuilder echiquier = new StringBuilder(72);
+        boolean premier = true;
+
+        for (char[] y : m_echiquier) {
+            if (!premier)
+                echiquier.append('\n');
+            for (char x : y) {
+                echiquier.append(x);
+            }
+            premier = false;
+        }
+        return echiquier.toString();
     }
 }

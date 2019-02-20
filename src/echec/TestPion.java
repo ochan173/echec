@@ -18,5 +18,8 @@ public class TestPion extends TestCase {
 
         assertEquals("blanc", pionBlanc.getCouleur());
         assertEquals("noir", pionNoir.getCouleur());
+
+        assertEquals('p', pionBlanc.obtenirRepresentation());
+        assertEquals('P', pionNoir.obtenirRepresentation());
     }
 }
