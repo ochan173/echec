@@ -1,10 +1,11 @@
 package echec;
-
+// TEST
 /**
  * Pion de base
  *
  * @author Olivier Chan
  * @author David Goulet
+ *
  */
 public class Pion {
     private String m_couleur;
