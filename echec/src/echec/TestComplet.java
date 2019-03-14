@@ -1,5 +1,7 @@
 package echec;
 
+import echec.Pieces.TestCompletPiece;
+import echec.Pieces.TestPiece;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -17,7 +19,7 @@ public class TestComplet extends TestCase {
     public static TestSuite suite() {
         TestSuite suite = new TestSuite();
         suite.addTestSuite(TestEchiquier.class);
-        suite.addTestSuite(TestPiece.class);
+        suite.addTestSuite(TestCompletPiece.class);
         return suite;
     }
 }

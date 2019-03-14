@@ -1,5 +1,7 @@
 package echec;
 
+import echec.Pieces.Piece;
+
 import java.util.LinkedHashMap;
 
 /**

@@ -1,5 +1,7 @@
 package echec;
 
+import echec.Pieces.Piece;
+
 /**
  * Classe qui attribue un pointage à une pièce
  *

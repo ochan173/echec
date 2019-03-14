@@ -1,5 +1,6 @@
 package echec;
 
+import echec.Pieces.Piece;
 import junit.framework.TestCase;
 
 /**
