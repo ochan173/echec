@@ -12,6 +12,28 @@ public abstract class Piece {
      */
     public enum Couleur { Blanc, Noir }
 
+    /**
+     * Énum qui donne le type de pièces ainsi que son pointage
+     */
+    public enum TypePiece {
+        Cavalier(2.5),
+        Fou(3),
+        Pion(1),
+        Reine(9),
+        Roi(2),
+        Tour(5);
+
+        private double m_pointage;
+
+        TypePiece(double p_pointage) {
+            m_pointage = p_pointage;
+        }
+
+        double getPointage() {
+            return m_pointage;
+        }
+    }
+
     private Couleur m_couleur;
     private char m_representation;
     private String m_position;
@@ -19,6 +41,12 @@ public abstract class Piece {
     protected Piece(Couleur p_couleur) {
         m_couleur = p_couleur;
     }
+
+    /**
+     * Permet d'obtenir le type d'une pièce
+     * @return le type de pièce
+     */
+    public abstract TypePiece getTypePiece();
 
     public String getPosition() {
         return m_position;
@@ -41,7 +69,7 @@ public abstract class Piece {
         }
     }
 
-     Couleur getCouleur() {
+     public Couleur getCouleur() {
         return m_couleur;
     }
 

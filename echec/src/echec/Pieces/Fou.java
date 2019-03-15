@@ -9,6 +9,11 @@ public class Fou extends Piece {
         super.setRepresentation(REP_FOU, p_couleur);
     }
 
+    @Override
+    public TypePiece getTypePiece() {
+        return TypePiece.Fou;
+    }
+
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Fou(p_couleur);
     }

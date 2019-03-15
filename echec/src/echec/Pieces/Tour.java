@@ -9,6 +9,11 @@ public class Tour extends Piece {
         super.setRepresentation(REP_TOUR, p_couleur);
     }
 
+    @Override
+    public TypePiece getTypePiece() {
+        return TypePiece.Tour;
+    }
+
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Tour(p_couleur);
     }

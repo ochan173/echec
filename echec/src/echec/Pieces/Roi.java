@@ -9,6 +9,11 @@ public class Roi extends Piece {
         super.setRepresentation(REP_ROI, p_couleur);
     }
 
+    @Override
+    public TypePiece getTypePiece() {
+        return TypePiece.Roi;
+    }
+
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Roi(p_couleur);
     }

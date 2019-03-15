@@ -9,6 +9,11 @@ public class Pion extends Piece {
         super.setRepresentation(REP_PION, p_couleur);
     }
 
+    @Override
+    public TypePiece getTypePiece() {
+        return TypePiece.Pion;
+    }
+
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Pion(p_couleur);
     }

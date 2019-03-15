@@ -1,6 +1,7 @@
 package echec;
 
 import echec.Pieces.Piece;
+import echec.Pieces.Pion;
 
 import java.util.LinkedHashMap;
 
@@ -36,16 +37,15 @@ class Echiquier {
      * Méthode pour créer une pièce et la placer sur l'échiquer
      *
      * @param p_couleur couleur de la pièce
-     * @param p_type type de la pièce
      * @param p_position position de la pièce
      */
-    void placerPiece(Piece.Couleur p_couleur, Piece.TypePiece p_type, String p_position) {
-        Piece piece = Piece.obtenirPiece(p_couleur ,p_type);
+    void placerPiece(Piece.Couleur p_couleur, String p_position) {
+        Piece pion = Pion.obtenirPiece(p_couleur);
 
         m_echiquier[colonne.valueOf(p_position.charAt(0) + "").ordinal()][Integer.parseInt(p_position.charAt(1)+"")]
-                = piece.getRepresentation();
+                = pion.getRepresentation();
 
-        m_pieces.put(p_position, piece);
+        m_pieces.put(p_position, pion);
     }
 
     /**
@@ -72,7 +72,7 @@ class Echiquier {
         int cpt = 0;
 
         for (Piece piece : m_pieces.values()) {
-            if (piece.getType() == p_type && piece.getCouleur() == p_couleur) {
+            if (piece.getTypePiece() == p_type && piece.getCouleur() == p_couleur) {
                 cpt++;
             }
         }

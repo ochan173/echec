@@ -1,6 +1,9 @@
 package echec;
 
+import echec.Pieces.Fou;
 import echec.Pieces.Piece;
+import echec.Pieces.Pion;
+import echec.Pieces.Reine;
 import junit.framework.TestCase;
 
 /**
@@ -23,8 +26,8 @@ public class TestEchiquier extends TestCase {
      * Test la création d'un échiquier
      */
     public void testCreer() {
-        Piece pionBlanc = Piece.obtenirPiece(Piece.Couleur.Blanc, Piece.TypePiece.Pion);
-        Piece pionNoir = Piece.obtenirPiece(Piece.Couleur.Noir, Piece.TypePiece.Pion);
+        Piece pionBlanc = Pion.obtenirPiece(Piece.Couleur.Blanc);
+        Piece pionNoir = Pion.obtenirPiece(Piece.Couleur.Noir);
 
         m_echiquier.ajouterPion(pionBlanc, "a1");
         assertEquals(pionBlanc, m_echiquier.getPion("a1"));
@@ -72,12 +75,12 @@ public class TestEchiquier extends TestCase {
      * Test pour obtenir une pièce selon sa position
      */
     public void testPieceSelonPosition() {
-        Piece fou = Piece.obtenirPiece(Piece.Couleur.Noir, Piece.TypePiece.Fou);
+        Piece fou = Fou.obtenirPiece(Piece.Couleur.Noir);
         m_echiquier.placerPiece(fou, "E1");
 
         assertEquals(fou, m_echiquier.getPiece("E1"));
 
-        Piece reine = Piece.obtenirPiece(Piece.Couleur.Blanc, Piece.TypePiece.Reine);
+        Piece reine = Reine.obtenirPiece(Piece.Couleur.Blanc);
         m_echiquier.placerPiece(reine, "A5");
 
         assertEquals(reine, m_echiquier.getPiece("A5"));

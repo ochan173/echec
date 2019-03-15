@@ -9,6 +9,11 @@ public class Cavalier extends Piece {
         super.setRepresentation(REP_CAVALIER, p_couleur);
     }
 
+    @Override
+    public TypePiece getTypePiece() {
+        return TypePiece.Cavalier;
+    }
+
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Cavalier(p_couleur);
     }

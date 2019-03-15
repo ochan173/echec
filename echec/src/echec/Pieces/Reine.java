@@ -9,6 +9,11 @@ public class Reine extends Piece {
         super.setRepresentation(REP_REINE, p_couleur);
     }
 
+    @Override
+    public TypePiece getTypePiece() {
+        return TypePiece.Reine;
+    }
+
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Reine(p_couleur);
     }
