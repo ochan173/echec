@@ -1,9 +1,6 @@
 package echec;
 
-import echec.Pieces.Fou;
-import echec.Pieces.Piece;
-import echec.Pieces.Pion;
-import echec.Pieces.Reine;
+import echec.Pieces.*;
 import junit.framework.TestCase;
 
 /**
@@ -67,7 +64,7 @@ public class TestEchiquier extends TestCase {
         }
         assertEquals(32, cptPieces);
 
-        m_echiquier.placerPiece(Piece.Couleur.Noir, Piece.TypePiece.Cavalier, "D4");
+        m_echiquier.placerPiece(Cavalier.obtenirPiece(Piece.Couleur.Noir),"D4");
         assertEquals('C', m_echiquier.elementAtPosition("D4"));
     }
 
@@ -92,8 +89,8 @@ public class TestEchiquier extends TestCase {
     public void testNbPieces() {
         assertEquals(0,  m_echiquier.nbPiecesSelonTypeCouleur(Piece.TypePiece.Tour, Piece.Couleur.Noir));
 
-        m_echiquier.placerPiece(Piece.Couleur.Noir, Piece.TypePiece.Tour, "D4");
-        m_echiquier.placerPiece(Piece.Couleur.Noir, Piece.TypePiece.Tour, "D5");
+        m_echiquier.placerPiece(Tour.obtenirPiece(Piece.Couleur.Noir), "D4");
+        m_echiquier.placerPiece(Tour.obtenirPiece(Piece.Couleur.Noir), "D5");
 
         int nbToursNoirs = m_echiquier.nbPiecesSelonTypeCouleur(Piece.TypePiece.Tour, Piece.Couleur.Noir);
         assertEquals(2, nbToursNoirs);
@@ -105,16 +102,16 @@ public class TestEchiquier extends TestCase {
     public void testTotalValeur() {
         assertEquals(0.0, m_echiquier.getTotalPoints(Piece.Couleur.Blanc));
 
-        m_echiquier.placerPiece(Piece.Couleur.Noir, Piece.TypePiece.Tour, "D4");
-        m_echiquier.placerPiece(Piece.Couleur.Noir, Piece.TypePiece.Reine, "E4");
-        m_echiquier.placerPiece(Piece.Couleur.Noir, Piece.TypePiece.Fou, "F4");
+        m_echiquier.placerPiece(Tour.obtenirPiece(Piece.Couleur.Noir), "D4");
+        m_echiquier.placerPiece(Reine.obtenirPiece(Piece.Couleur.Noir), "E4");
+        m_echiquier.placerPiece(Fou.obtenirPiece(Piece.Couleur.Noir), "F4");
 
         assertEquals(0.0, m_echiquier.getTotalPoints(Piece.Couleur.Blanc));
         assertEquals(17.0, m_echiquier.getTotalPoints(Piece.Couleur.Noir));
 
-        m_echiquier.placerPiece(Piece.Couleur.Blanc, Piece.TypePiece.Pion, "A4");
-        m_echiquier.placerPiece(Piece.Couleur.Blanc, Piece.TypePiece.Reine, "E1");
-        m_echiquier.placerPiece(Piece.Couleur.Blanc, Piece.TypePiece.Cavalier, "C4");
+        m_echiquier.placerPiece(Cavalier.obtenirPiece(Piece.Couleur.Blanc), "A4");
+        m_echiquier.placerPiece(Reine.obtenirPiece(Piece.Couleur.Blanc), "E1");
+        m_echiquier.placerPiece(Pion.obtenirPiece(Piece.Couleur.Blanc), "C4");
 
         assertEquals(12.5, m_echiquier.getTotalPoints(Piece.Couleur.Blanc));
         assertEquals(17.0, m_echiquier.getTotalPoints(Piece.Couleur.Noir));

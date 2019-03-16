@@ -29,7 +29,7 @@ public abstract class Piece {
             m_pointage = p_pointage;
         }
 
-        double getPointage() {
+        public double getPointage() {
             return m_pointage;
         }
     }

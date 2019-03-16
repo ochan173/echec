@@ -1,7 +1,6 @@
 package echec;
 
-import echec.Pieces.Piece;
-import echec.Pieces.Pion;
+import echec.Pieces.*;
 
 import java.util.LinkedHashMap;
 
@@ -91,7 +90,7 @@ class Echiquier {
 
         for (Piece piece : m_pieces.values()) {
             if (piece.getCouleur() == p_couleur) {
-                total += PointagePieces.getNbPointsPourPièce(piece);
+                total += piece.getTypePiece().getPointage();
             }
         }
 
@@ -140,10 +139,10 @@ class Echiquier {
      */
     void initialiser() {
 
-        Piece[] piecesBlanc = Piece.genererPieces(Piece.Couleur.Blanc);
-        Piece[] piecesNoir = Piece.genererPieces(Piece.Couleur.Noir);
-        Piece[] pionsBlanc = Piece.genererPions(Piece.Couleur.Blanc);
-        Piece[] pionsNoir = Piece.genererPions(Piece.Couleur.Noir);
+        Piece[] piecesBlanc = genererPieces(Piece.Couleur.Blanc);
+        Piece[] piecesNoir = genererPieces(Piece.Couleur.Noir);
+        Piece[] pionsBlanc = genererPions(Piece.Couleur.Blanc);
+        Piece[] pionsNoir = genererPions(Piece.Couleur.Noir);
 
         for (int i = 0; i < 8; i++) {
             if(i == 7) {
@@ -172,6 +171,38 @@ class Echiquier {
                 }
             }
         }
+    }
+
+    /**
+     * Génère une colelction de pions pour remplir l'échiquier
+     * @param p_couleur couleur que les pions auront
+     * @return une collection de pions
+     */
+    private Piece[] genererPions(Piece.Couleur p_couleur) {
+        Piece[] pionsList = new Pion[8];
+        for(int i = 0; i < pionsList.length; i++) {
+            pionsList[i] = Pion.obtenirPiece(p_couleur);
+        }
+        return pionsList;
+    }
+
+    /**
+     * Génère une collection des différents type de pièces utilisées dans l'échiquier
+     * @param p_couleur couleur des pièces
+     * @return la collection des pièces d'un échiquier
+     */
+    private Piece[] genererPieces(Piece.Couleur p_couleur) {
+        Piece[] listPieces = {
+                Tour.obtenirPiece(p_couleur),
+                Cavalier.obtenirPiece(p_couleur),
+                Fou.obtenirPiece(p_couleur),
+                Reine.obtenirPiece(p_couleur),
+                Roi.obtenirPiece(p_couleur),
+                Fou.obtenirPiece(p_couleur),
+                Cavalier.obtenirPiece(p_couleur),
+                Tour.obtenirPiece(p_couleur)
+        };
+        return listPieces;
     }
 
     /**

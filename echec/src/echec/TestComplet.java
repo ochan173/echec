@@ -19,7 +19,7 @@ public class TestComplet extends TestCase {
     public static TestSuite suite() {
         TestSuite suite = new TestSuite();
         suite.addTestSuite(TestEchiquier.class);
-        suite.addTestSuite(TestCompletPiece.class);
+        suite.addTest(TestCompletPiece.suite());
         return suite;
     }
 }
