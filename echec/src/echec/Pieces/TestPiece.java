@@ -1,6 +1,5 @@
 package echec.Pieces;
 
-import echec.Pieces.Piece;
 import junit.framework.TestCase;
 
 /**
@@ -19,6 +18,7 @@ public abstract class TestPiece extends TestCase {
         assertTrue(piece1.estBlanc());
         piece1.setRepresentation('B', piece1.getCouleur());
         assertEquals('b', piece1.getRepresentation());
+
         piece1.setPosition("a1");
         assertEquals("a1", piece1.getPosition());
 
@@ -29,7 +29,5 @@ public abstract class TestPiece extends TestCase {
         assertEquals('N', piece2.getRepresentation());
         piece2.setPosition("b1");
         assertEquals("b1", piece2.getPosition());
-
     }
-
 }

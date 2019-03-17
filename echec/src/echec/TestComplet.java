@@ -1,7 +1,6 @@
 package echec;
 
 import echec.Pieces.TestCompletPiece;
-import echec.Pieces.TestPiece;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
