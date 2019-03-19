@@ -122,10 +122,25 @@ class Echiquier {
             return null;
     }
 
+    /**
+     * Permet d'aller chercher une pièce dans l'échiquier
+     * selon une position
+     *
+     * @param p_position position ciblée
+     * @return la pièce à la position
+     */
     Piece getPiece(String p_position) {
         return m_pieces.get(p_position);
     }
 
+    /**
+     * Méthode qui valide le déplacement d'une pièce sur l'échiquier
+     *
+     * @param p_positionDepart position de départ de la pièce
+     * @param p_nouvellePosition nouvelle position de la pièce
+     * @param p_piece pièce à déplacer
+     * @return True si le déplacement est valide sinon False
+     */
     boolean deplacerPiece(String p_positionDepart, String p_nouvellePosition, Piece p_piece) {
         if (!positionValide(p_nouvellePosition, p_piece)) {
             return false;

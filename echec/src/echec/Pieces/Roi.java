@@ -1,8 +1,17 @@
 package echec.Pieces;
 
+/**
+ * Pièce de type roi
+ *
+ * @author Olivier Chan
+ * @author David Goulet
+ */
 public class Roi extends Piece {
 
-    public static final char REP_ROI = 'r';
+    /**
+     * Représentation d'un roi
+     */
+    protected static final char REP_ROI = 'r';
 
     private Roi (Couleur p_couleur) {
         super(p_couleur);
@@ -14,6 +23,11 @@ public class Roi extends Piece {
         return TypePiece.Roi;
     }
 
+    /**
+     * Fonction qui valide si un déplacement du roi est valide
+     * @param p_position nouvelle position
+     * @return True si le déplacement est valide sinon False
+     */
     public boolean deplacementValide(String p_position) {
         if (!super.deplacementValide(p_position)) {
             return false;
@@ -22,9 +36,7 @@ public class Roi extends Piece {
         int x = colonne.valueOf(Character.toString(p_position.charAt(0)).toUpperCase()).ordinal();
         int y = Integer.parseInt(String.valueOf(p_position.charAt(1)));
 
-        int a = Math.abs(x - m_positionX);
-        int b = Math.abs(y - m_positionY);
-        if (a < 2 && b < 2) {
+        if (Math.abs(x - m_positionX) < 2 && Math.abs(y - m_positionY) < 2) {
             return true;
         }
         else {
@@ -32,6 +44,11 @@ public class Roi extends Piece {
         }
     }
 
+    /**
+     * Constructeur nommé d'un roi
+     * @param p_couleur couleur de la pièce
+     * @return un roi
+     */
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Roi(p_couleur);
     }

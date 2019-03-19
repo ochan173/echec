@@ -11,7 +11,7 @@ public class Pion extends Piece {
     /**
      * Représentation d'un pion
      */
-    public static final char REP_PION = 'p';
+    protected static final char REP_PION = 'p';
 
     private Pion(Couleur p_couleur) {
         super(p_couleur);

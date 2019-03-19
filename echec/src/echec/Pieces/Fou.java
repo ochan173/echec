@@ -11,7 +11,7 @@ public class Fou extends Piece {
     /**
      * Représentation d'un fou
      */
-    public static final char REP_FOU = 'f';
+    protected static final char REP_FOU = 'f';
 
     private Fou(Couleur p_couleur) {
         super(p_couleur);

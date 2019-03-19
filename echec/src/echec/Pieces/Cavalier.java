@@ -10,7 +10,7 @@ public class Cavalier extends Piece {
     /**
      * Représentation d'un cavalier
      */
-    public static final char REP_CAVALIER = 'c';
+    protected static final char REP_CAVALIER = 'c';
 
     private Cavalier(Couleur p_couleur) {
         super(p_couleur);

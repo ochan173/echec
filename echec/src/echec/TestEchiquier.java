@@ -117,6 +117,9 @@ public class TestEchiquier extends TestCase {
         assertEquals(17.0, m_echiquier.getTotalPoints(Piece.Couleur.Noir));
     }
 
+    /**
+     * Test pour déplacer des pièces sur l'échiquier
+     */
     public void testDeplacer() {
         Piece roi = Roi.obtenirPiece(Piece.Couleur.Noir);
         m_echiquier.placerPiece(roi, "C3");

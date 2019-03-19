@@ -1,8 +1,17 @@
 package echec.Pieces;
 
+/**
+ * Pièce de type reine
+ *
+ * @author Olivier Chan
+ * @author David Goulet
+ */
 public class Reine extends Piece {
 
-    public static final char REP_REINE = 'd';
+    /**
+     * Représentation d'une reine
+     */
+    protected static final char REP_REINE = 'd';
 
     private Reine(Couleur p_couleur) {
         super(p_couleur);
@@ -14,6 +23,11 @@ public class Reine extends Piece {
         return TypePiece.Reine;
     }
 
+    /**
+     * Fonction qui s'assure que le déplacement d'une reine est valide
+     * @param p_position nouvelle position
+     * @return True si le déplacement est valide sinon False
+     */
     public boolean deplacementValide(String p_position) {
         if (!super.deplacementValide(p_position)) {
             return false;
@@ -38,7 +52,12 @@ public class Reine extends Piece {
         return false;
     }
 
-        public static Piece obtenirPiece(Couleur p_couleur) {
-        return new Reine(p_couleur);
+    /**
+     * Constructeur nommé d'une reine
+     * @param p_couleur couleur de la pièce
+     * @return une reine
+     */
+    public static Piece obtenirPiece(Couleur p_couleur) {
+            return new Reine(p_couleur);
     }
 }
