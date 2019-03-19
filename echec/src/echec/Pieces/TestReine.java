@@ -6,7 +6,9 @@ public class TestReine extends TestPiece {
         return Reine.obtenirPiece(p_couleur);
     }
     public void testRepresentation() {
-        Piece reine = creerPiece(Piece.Couleur.Noir);
-        assertEquals('D', reine.getRepresentation());
+        assertEquals(Character.toLowerCase(Reine.REP_REINE), super.m_piece.getRepresentation());
+    }
+    public void testType() {
+        assertEquals(Piece.TypePiece.Reine, super.m_piece.getTypePiece());
     }
 }

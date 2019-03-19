@@ -6,7 +6,9 @@ public class TestTour extends TestPiece {
         return Tour.obtenirPiece(p_couleur);
     }
     public void testRepresentation() {
-        Piece tour = creerPiece(Piece.Couleur.Blanc);
-        assertEquals('t', tour.getRepresentation());
+        assertEquals(Tour.REP_TOUR, super.m_piece.getRepresentation());
+    }
+    public void testType() {
+        assertEquals(Piece.TypePiece.Tour, super.m_piece.getTypePiece());
     }
 }

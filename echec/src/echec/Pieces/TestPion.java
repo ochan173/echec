@@ -6,7 +6,9 @@ public class TestPion extends TestPiece {
         return Pion.obtenirPiece(p_couleur);
     }
     public void testRepresentation() {
-        Piece pion = creerPiece(Piece.Couleur.Blanc);
-        assertEquals('p', pion.getRepresentation());
+        assertEquals(Pion.REP_PION, super.m_piece.getRepresentation());
+    }
+    public void testType() {
+        assertEquals(Piece.TypePiece.Pion, super.m_piece.getTypePiece());
     }
 }

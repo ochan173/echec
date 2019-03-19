@@ -2,7 +2,7 @@ package echec.Pieces;
 
 public class Cavalier extends Piece {
 
-    private final char REP_CAVALIER = 'c';
+    public static final char REP_CAVALIER = 'c';
 
     private Cavalier(Couleur p_couleur) {
         super(p_couleur);

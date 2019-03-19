@@ -2,7 +2,7 @@ package echec.Pieces;
 
 public class Tour extends Piece {
 
-    private final char REP_TOUR = 't';
+    public static final char REP_TOUR = 't';
 
     private Tour(Couleur p_couleur) {
         super(p_couleur);

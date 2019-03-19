@@ -2,7 +2,7 @@ package echec.Pieces;
 
 public class Reine extends Piece {
 
-    private final char REP_REINE = 'd';
+    public static final char REP_REINE = 'd';
 
     private Reine(Couleur p_couleur) {
         super(p_couleur);
@@ -19,11 +19,11 @@ public class Reine extends Piece {
             return false;
         }
 
-        int x = colonne.valueOf(Character.toString(super.m_position.charAt(0)).toUpperCase()).ordinal();
-        int y = Integer.parseInt(String.valueOf(super.m_position.charAt(1)));
+        int x = colonne.valueOf(Character.toString(p_position.charAt(0)).toUpperCase()).ordinal();
+        int y = Integer.parseInt(String.valueOf(p_position.charAt(1)));
 
         //En diagonale
-        if (x - m_positionX == y - m_positionY) {
+        if (Math.abs(x - m_positionX) == Math.abs(y - m_positionY)) {
             return true;
         }
         //Même colonne

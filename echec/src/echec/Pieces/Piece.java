@@ -56,15 +56,23 @@ public abstract class Piece {
 
     public boolean deplacementValide(String p_position) {
         getColonneEtRangeeActuelle();
+        boolean colonneValide = false;
+        for (colonne c : colonne.values()) {
+            if (c.name().charAt(0) == p_position.charAt(0)) {
+                colonneValide = true;
+                break;
+            }
+        }
+        if (!colonneValide) {
+            return false;
+        }
         int nouveauX = colonne.valueOf(Character.toString(p_position.charAt(0)).toUpperCase()).ordinal();
         int nouveauY = Integer.parseInt(String.valueOf(p_position.charAt(1)));
 
         if (m_positionX == nouveauX && m_positionY == nouveauY) {
             return false;
         }
-        else if (nouveauX > TAILLE_ECHIQUIER || nouveauY > TAILLE_ECHIQUIER) {
-            return false;
-        }
+
         return true;
     }
 

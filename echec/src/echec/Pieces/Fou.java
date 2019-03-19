@@ -2,7 +2,7 @@ package echec.Pieces;
 
 public class Fou extends Piece {
 
-    private final char REP_FOU = 'f';
+    public static final char REP_FOU = 'f';
 
     private Fou(Couleur p_couleur) {
         super(p_couleur);

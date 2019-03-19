@@ -124,6 +124,14 @@ public class TestEchiquier extends TestCase {
         assertEquals(roi, m_echiquier.getPiece("C4"));
         m_echiquier.deplacerPiece("C4", "B3", roi);
         assertEquals(roi, m_echiquier.getPiece("B3"));
+        assertFalse(m_echiquier.deplacerPiece("B3", "E3", roi));
 
+        Piece reine = Reine.obtenirPiece(Piece.Couleur.Blanc);
+        m_echiquier.placerPiece(reine, "F2");
+        m_echiquier.deplacerPiece("F2", "F5", reine);
+        assertEquals(reine, m_echiquier.getPiece("F5"));
+        m_echiquier.deplacerPiece("F5", "D7", reine);
+        assertEquals(reine, m_echiquier.getPiece("D7"));
+        assertFalse(m_echiquier.deplacerPiece("D7", "F6", reine));
     }
 }

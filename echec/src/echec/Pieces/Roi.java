@@ -2,7 +2,7 @@ package echec.Pieces;
 
 public class Roi extends Piece {
 
-    private final char REP_ROI = 'r';
+    public static final char REP_ROI = 'r';
 
     private Roi (Couleur p_couleur) {
         super(p_couleur);
@@ -19,10 +19,12 @@ public class Roi extends Piece {
             return false;
         }
 
-        int x = colonne.valueOf(Character.toString(super.m_position.charAt(0)).toUpperCase()).ordinal();
-        int y = Integer.parseInt(String.valueOf(super.m_position.charAt(1)));
+        int x = colonne.valueOf(Character.toString(p_position.charAt(0)).toUpperCase()).ordinal();
+        int y = Integer.parseInt(String.valueOf(p_position.charAt(1)));
 
-        if (Math.abs(x - m_positionX) < 2 && Math.abs(y - m_positionY) < 2) {
+        int a = Math.abs(x - m_positionX);
+        int b = Math.abs(y - m_positionY);
+        if (a < 2 && b < 2) {
             return true;
         }
         else {

@@ -2,7 +2,7 @@ package echec.Pieces;
 
 public class Pion extends Piece {
 
-    private final char REP_PION = 'p';
+    public static final char REP_PION = 'p';
 
     private Pion(Couleur p_couleur) {
         super(p_couleur);

@@ -6,7 +6,9 @@ public class TestFou extends TestPiece {
         return Fou.obtenirPiece(p_couleur);
     }
     public void testRepresentation() {
-        Piece fou = creerPiece(Piece.Couleur.Noir);
-        assertEquals('F', fou.getRepresentation());
+        assertEquals(Character.toLowerCase(Fou.REP_FOU), super.m_piece.getRepresentation());
+    }
+    public void testType() {
+        assertEquals(Piece.TypePiece.Fou, super.m_piece.getTypePiece());
     }
 }
