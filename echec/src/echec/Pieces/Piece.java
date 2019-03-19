@@ -7,7 +7,6 @@ package echec.Pieces;
  * @author David Goulet
  */
 public abstract class Piece {
-    final int TAILLE_ECHIQUIER = 8;
 
     /**
      * Énumération des couleurs que peut prendre une pièce
@@ -44,6 +43,10 @@ public abstract class Piece {
     protected int m_positionX;
     protected int m_positionY;
 
+    /**
+     * Constructeur d'une pièce
+     * @param p_couleur couleur de la pièce
+     */
     protected Piece(Couleur p_couleur) {
         m_couleur = p_couleur;
     }
@@ -54,6 +57,11 @@ public abstract class Piece {
      */
     public abstract TypePiece getTypePiece();
 
+    /**
+     * Fonction qui vérifie si un déplacement est valide
+     * @param p_position nouvelle position
+     * @return True si le déplacement est valide sinon False
+     */
     public boolean deplacementValide(String p_position) {
         getColonneEtRangeeActuelle();
         boolean colonneValide = false;

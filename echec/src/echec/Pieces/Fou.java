@@ -1,7 +1,16 @@
 package echec.Pieces;
 
+/**
+ * Pièce de type fou
+ *
+ * @author Olivier Chan
+ * @author David Goulet
+ */
 public class Fou extends Piece {
 
+    /**
+     * Représentation d'un fou
+     */
     public static final char REP_FOU = 'f';
 
     private Fou(Couleur p_couleur) {
@@ -14,6 +23,11 @@ public class Fou extends Piece {
         return TypePiece.Fou;
     }
 
+    /**
+     * Constructeur nommé d'un fou
+     * @param p_couleur couleur de la pièce
+     * @return un fou
+     */
     public static Piece obtenirPiece(Couleur p_couleur) {
         return new Fou(p_couleur);
     }
