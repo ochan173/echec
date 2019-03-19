@@ -11,4 +11,7 @@ public class TestFou extends TestPiece {
     public void testType() {
         assertEquals(Piece.TypePiece.Fou, super.m_piece.getTypePiece());
     }
+    public void testPointage() {
+        assertEquals(Piece.TypePiece.Fou.getPointage(), super.m_piece.getTypePiece().getPointage());
+    }
 }

@@ -13,4 +13,7 @@ public class TestRoi extends TestPiece {
     public void testType() {
         assertEquals(Piece.TypePiece.Roi, super.m_piece.getTypePiece());
     }
+    public void testPointage() {
+        assertEquals(Piece.TypePiece.Roi.getPointage(), super.m_piece.getTypePiece().getPointage());
+    }
 }

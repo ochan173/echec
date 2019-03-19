@@ -11,4 +11,7 @@ public class TestPion extends TestPiece {
     public void testType() {
         assertEquals(Piece.TypePiece.Pion, super.m_piece.getTypePiece());
     }
+    public void testPointage() {
+        assertEquals(Piece.TypePiece.Pion.getPointage(), super.m_piece.getTypePiece().getPointage());
+    }
 }

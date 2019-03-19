@@ -11,4 +11,14 @@ public class TestReine extends TestPiece {
     public void testType() {
         assertEquals(Piece.TypePiece.Reine, super.m_piece.getTypePiece());
     }
+    public void testPointage() {
+        assertEquals(Piece.TypePiece.Reine.getPointage(), super.m_piece.getTypePiece().getPointage());
+    }
+    public void testDeplacement() {
+        super.m_piece = Reine.obtenirPiece(Piece.Couleur.Noir);
+        m_piece.setPosition("E5");
+        assertTrue(m_piece.deplacementValide("E1"));
+        assertTrue(m_piece.deplacementValide("G5"));
+        assertFalse(m_piece.deplacementValide("G1"));
+    }
 }

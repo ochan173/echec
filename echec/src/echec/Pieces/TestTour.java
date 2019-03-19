@@ -11,4 +11,7 @@ public class TestTour extends TestPiece {
     public void testType() {
         assertEquals(Piece.TypePiece.Tour, super.m_piece.getTypePiece());
     }
+    public void testPointage() {
+        assertEquals(Piece.TypePiece.Tour.getPointage(), super.m_piece.getTypePiece().getPointage());
+    }
 }
