@@ -58,6 +58,7 @@ class Echiquier {
                 = p_piece.getRepresentation();
 
         m_pieces.put(p_position, p_piece);
+        m_pieces.get(p_position).setPosition(p_position);
     }
 
     /**
@@ -123,6 +124,53 @@ class Echiquier {
 
     Piece getPiece(String p_position) {
         return m_pieces.get(p_position);
+    }
+
+    boolean deplacerPiece(String p_positionDepart, String p_nouvellePosition, Piece p_piece) {
+        if (!positionValide(p_nouvellePosition, p_piece)) {
+            return false;
+        }
+
+        if (!m_pieces.containsKey(p_positionDepart) || m_pieces.get(p_positionDepart).getRepresentation() != p_piece.getRepresentation()) {
+            return false;
+        }
+
+        m_pieces.get(p_positionDepart).setPosition(p_nouvellePosition);
+        m_pieces.put(p_nouvellePosition, m_pieces.get(p_positionDepart));
+        m_pieces.remove(p_positionDepart);
+
+        return true;
+    }
+
+    private boolean positionValide(String p_position, Piece p_piece) {
+        if (p_position.length() != 2) {
+            return false;
+        }
+
+        boolean colonneValide = false;
+
+        for (colonne c : colonne.values()) {
+            if (c.name().charAt(0) == p_position.charAt(0)) {
+                colonneValide = true;
+                break;
+            }
+        }
+
+        if (!colonneValide) {
+            return false;
+        }
+
+        int rangee = Integer.parseInt(String.valueOf(p_position.charAt(1)));
+
+        if (rangee < 1 || rangee > 8) {
+            return false;
+        }
+
+        if (!p_piece.deplacementValide(p_position)) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

@@ -116,4 +116,14 @@ public class TestEchiquier extends TestCase {
         assertEquals(12.5, m_echiquier.getTotalPoints(Piece.Couleur.Blanc));
         assertEquals(17.0, m_echiquier.getTotalPoints(Piece.Couleur.Noir));
     }
+
+    public void testDeplacer() {
+        Piece roi = Roi.obtenirPiece(Piece.Couleur.Noir);
+        m_echiquier.placerPiece(roi, "C3");
+        m_echiquier.deplacerPiece("C3", "C4", roi);
+        assertEquals(roi, m_echiquier.getPiece("C4"));
+        m_echiquier.deplacerPiece("C4", "B3", roi);
+        assertEquals(roi, m_echiquier.getPiece("B3"));
+
+    }
 }

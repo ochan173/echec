@@ -7,10 +7,14 @@ package echec.Pieces;
  * @author David Goulet
  */
 public abstract class Piece {
+    final int TAILLE_ECHIQUIER = 8;
+
     /**
      * Énumération des couleurs que peut prendre une pièce
      */
     public enum Couleur { Blanc, Noir }
+
+    protected enum colonne {A, B, C, D, E, F, G, H}
 
     /**
      * Énum qui donne le type de pièces ainsi que son pointage
@@ -36,7 +40,9 @@ public abstract class Piece {
 
     private Couleur m_couleur;
     private char m_representation;
-    private String m_position;
+    protected String m_position;
+    protected int m_positionX;
+    protected int m_positionY;
 
     protected Piece(Couleur p_couleur) {
         m_couleur = p_couleur;
@@ -47,6 +53,25 @@ public abstract class Piece {
      * @return le type de pièce
      */
     public abstract TypePiece getTypePiece();
+
+    public boolean deplacementValide(String p_position) {
+        getColonneEtRangeeActuelle();
+        int nouveauX = colonne.valueOf(Character.toString(p_position.charAt(0)).toUpperCase()).ordinal();
+        int nouveauY = Integer.parseInt(String.valueOf(p_position.charAt(1)));
+
+        if (m_positionX == nouveauX && m_positionY == nouveauY) {
+            return false;
+        }
+        else if (nouveauX > TAILLE_ECHIQUIER || nouveauY > TAILLE_ECHIQUIER) {
+            return false;
+        }
+        return true;
+    }
+
+    private void getColonneEtRangeeActuelle() {
+        m_positionX = colonne.valueOf(Character.toString(m_position.charAt(0)).toUpperCase()).ordinal();
+        m_positionY = Integer.parseInt(String.valueOf(m_position.charAt(1)));
+    }
 
     public String getPosition() {
         return m_position;
