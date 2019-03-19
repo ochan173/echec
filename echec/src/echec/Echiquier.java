@@ -33,21 +33,6 @@ class Echiquier {
     }
 
     /**
-     * Méthode pour créer une pièce et la placer sur l'échiquer
-     *
-     * @param p_couleur couleur de la pièce
-     * @param p_position position de la pièce
-     */
-    void placerPiece(Piece.Couleur p_couleur, String p_position) {
-        Piece pion = Pion.obtenirPiece(p_couleur);
-
-        m_echiquier[colonne.valueOf(p_position.charAt(0) + "").ordinal()][Integer.parseInt(p_position.charAt(1)+"")]
-                = pion.getRepresentation();
-
-        m_pieces.put(p_position, pion);
-    }
-
-    /**
      * Méthode pour placer une pièce sur l'échiquier
      *
      * @param p_piece pièce à placer
